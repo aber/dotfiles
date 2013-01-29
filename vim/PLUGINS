@@ -1,7 +1,7 @@
-pathogen
++ pathogen
 " latex-box
-fugitive
-gnupg
++ fugitive
++ gnupg
 gundo
 mw-utils
 " nerdtree
@@ -9,16 +9,16 @@ snipmate
 snipmate-snippets
 surround
 syntastic
-tabular
++ tabular
 tagbar
 tlib
 unimpaired
 zencoding
 mw-utils
-ack
++ ack
 buffergator
 css-color
-ctrlp
++ ctrlp
 endwise
 matchit
 " nerdcommenter
