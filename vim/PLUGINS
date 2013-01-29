@@ -1,0 +1,27 @@
+pathogen
+" latex-box
+fugitive
+gnupg
+gundo
+mw-utils
+" nerdtree
+snipmate
+snipmate-snippets
+surround
+syntastic
+tabular
+tagbar
+tlib
+unimpaired
+zencoding
+mw-utils
+ack
+buffergator
+css-color
+ctrlp
+endwise
+matchit
+" nerdcommenter
+vroom
+" command-t  https://github.com/wincent/Command-T
+commentary
