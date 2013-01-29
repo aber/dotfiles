@@ -63,6 +63,10 @@ set smartcase                   " ... unless they contain at least one capital l
 let mapleader = ","
 let g:mapleader = ","
 
+" %%% display %%%
+
+" Use the same symbols as TextMate for tabstops and EOLs
+set listchars=tab:▸\ ,eol:¬
 
 " %%% key mappings %%%
 
@@ -79,12 +83,46 @@ nmap <C-Down> ]e
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
 
-" TagBar
+" Visually select the text that was last edited/pasted
+nmap gV `[v`]
+
+" Shortcut to rapidly toggle `set list`
+nmap <leader>l :set list!<CR>
+nmap <leader>n :set number!<CR>
+nmap <leader>w :set wrap!<CR>
+nmap <leader>p :set paste!<CR>
+
+" Toggles
+nmap <F5> :set list! number!<CR>
+nmap <F6> :set wrap!<CR>
+nmap <F7> :NERDTreeToggle<CR>
 nmap <F8> :TagbarToggle<CR>
+
+" Syntastic
+" :Error, :SyntasticToggleMode
 
 " %%% status line %%%
 set laststatus=1
 set statusline=
+set statusline+=%7*\[%n]                                  "buffernr
+set statusline+=%1*\ %<%F\                                "File+path
+set statusline+=%2*\ %y\                                  "FileType
+set statusline+=%3*\ %{''.(&fenc!=''?&fenc:&enc).''}      "Encoding
+set statusline+=%3*\ %{(&bomb?\",BOM\":\"\")}\            "Encoding2
+set statusline+=%4*\ %{&ff}\                              "FileFormat (dos/unix..) 
+set statusline+=%5*\ %{&spelllang}\%{HighlightSearch()}\  "Spellanguage & Highlight on?
+set statusline+=%8*\ %=\ row:%l/%L\ (%03p%%)\             "Rownumber/total (%)
+set statusline+=%9*\ col:%03c\                            "Colnr
+set statusline+=%0*\ \ %m%r%w\ %P\ \                      "Modified? Readonly? Top/bot.
+
+function! HighlightSearch()
+  if &hls
+    return 'H'
+  else
+    return ''
+  endif
+endfunction
+
 
 " %%% colors %%%
 " cterm=reverse,underline,bold
@@ -123,6 +161,22 @@ hi VisualNOS            ctermbg=237    ctermfg=NONE
 " Tab Completion
 hi Pmenu                ctermbg=7      ctermfg=8
 hi PmenuSel             ctermbg=5      ctermfg=15
+" CtrlP
+hi CtrlPMatch           ctermbg=Magenta
+" Signs
+" for e.g. syntastic
+hi SignColumn           ctermbg=237
+hi SpellBad             ctermbg=1
+" User colors
+hi User1        ctermfg=253 ctermbg=238 cterm=NONE
+hi User2        ctermfg=253 ctermbg=237 cterm=NONE
+hi User3        ctermfg=253 ctermbg=237 cterm=NONE
+hi User4        ctermfg=253 ctermbg=237 cterm=NONE
+hi User5        ctermfg=253 ctermbg=236 cterm=NONE
+hi User7        ctermfg=253 ctermbg=236 cterm=NONE
+hi User8        ctermfg=253 ctermbg=236 cterm=NONE
+hi User9        ctermfg=253 ctermbg=236 cterm=NONE
+hi User0        ctermfg=253 ctermbg=125 cterm=NONE
 
 " %%% Cursor %%%
 
@@ -165,6 +219,25 @@ endfunction
 set foldtext=SimpleFoldText()
 
 if has("autocmd")
+  " Syntax of these languages is fussy over tabs Vs spaces
+  autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
+  autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+   
+  " Treat .rss files as XML
+  autocmd BufNewFile,BufRead *.rss setfiletype xml
+  autocmd BufNewFile,BufRead *.inc setfiletype php
+  autocmd BufNewFile,BufRead *.install setfiletype php
+  autocmd BufNewFile,BufRead *.module setfiletype php
+  autocmd BufNewFile,BufRead *.less setfiletype css
+  autocmd BufNewFile,BufRead *.scss setfiletype css
+  autocmd BufNewFile,BufRead *.sass setfiletype css
+
+  " Customisations based on house-style (arbitrary)
+  autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType php setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
+
   au BufNewFile,BufRead *.md set foldtext=MarkdownFoldText()
 
   au BufNewFile,BufRead *.notizen.md setlocal foldmethod=expr
