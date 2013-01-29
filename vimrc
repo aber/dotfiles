@@ -30,6 +30,9 @@
 "
 " --------------------------------------------
 
+runtime bundle/pathogen/autoload/pathogen.vim
+call pathogen#infect()
+
 " %%% leader %%%
 let mapleader = ","
 let g:mapleader = ","
@@ -38,6 +41,9 @@ let g:mapleader = ","
 
 set textwidth=0
 set wrap
+
+syntax on
+filetype plugin indent on
 
 " %%% key mappings %%%
 
