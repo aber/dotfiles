@@ -1,8 +1,12 @@
+
 "
 " -------------> URLs <--------------------
 " http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim
 " http://vim.wikia.com/wiki/256_colors_in_vim
 " http://vim.wikia.com/wiki/Configuring_the_cursor 
+" http://mislav.uniqpath.com/2011/12/vim-revisited/
+" https://github.com/mislav/vimfiles
+" http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/
 "
 " -------------> Notizen <--------------------
 " map ,l :w\|lessc % %:r<br>
@@ -27,28 +31,56 @@
 "
 " -------------> Themes <--------------------
 " desert256, inkpot, 256-grayvim, or gardener.
+" desert, pablo, peachpuff, torte, zellner
+" solarized
 "
 " --------------------------------------------
 
 runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
+set nocompatible                " choose no compatibility with legacy vi
+syntax enable                   " syntax highlighting, enable keeps hi, on overrules
+"syntax on
+set encoding=utf-8
+set showcmd                     " display incomplete commands
+filetype plugin indent on       " load file type plugins + indentation
+
+"" Whitespace
+set nowrap                      " don't wrap lines
+set tabstop=2 shiftwidth=2      " a tab is two spaces (or set this to 4)
+set expandtab                   " use spaces, not tabs (optional)
+set backspace=indent,eol,start  " backspace through everything in insert mode
+set textwidth=0
+
+"" Searching
+set hlsearch                    " highlight matches
+set incsearch                   " incremental searching
+set ignorecase                  " searches are case insensitive...
+set smartcase                   " ... unless they contain at least one capital letter
+
 " %%% leader %%%
 let mapleader = ","
 let g:mapleader = ","
 
-" %%% text input %%%
-
-set textwidth=0
-set wrap
-
-syntax on
-filetype plugin indent on
 
 " %%% key mappings %%%
 
+nnoremap <leader><leader> <c-^>
+
 " open the file under the cursor in new tab
 map <leader>gf :tabe <cfile><cr>
+
+" vimcasts #26 http://vimcasts.org/episodes/bubbling-text/
+" Bubble single lines
+nmap <C-Up> [e
+nmap <C-Down> ]e
+" Bubble multiple lines
+vmap <C-Up> [egv
+vmap <C-Down> ]egv
+
+" TagBar
+nmap <F8> :TagbarToggle<CR>
 
 " %%% status line %%%
 set laststatus=1
