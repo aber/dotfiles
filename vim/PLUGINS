@@ -25,3 +25,10 @@ matchit
 vroom
 " command-t  https://github.com/wincent/Command-T
 commentary
+vim-for-drupal
+phpfolding
+switch-colorschemes
+vim-less
+" vim-powerline
+vim-debug
+debugger
