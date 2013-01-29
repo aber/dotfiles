@@ -1,0 +1,6 @@
+set gui=none
+set autocomplete=false
+
+nmap gv :buffer #<cr>
+
+set defsearch=google

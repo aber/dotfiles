@@ -1,0 +1,28 @@
+[user]
+	name = XXX
+	email = x@example.com
+# http://osiux.com/git-alias
+[alias]
+  st = status
+  br = branch
+  ci = commit
+  co = checkout
+  ma = checkout master
+  di = diff --color
+  d = diff --color
+  dw = diff --word-diff --color
+  lc = log ORIG_HEAD.. --stat --no-merges
+  pu = pull --ff-only
+  purb = pull --rebase
+  changes = diff --name-status -r diffstat=diff --stat -r
+  patches = log --color --patch
+  oneline = log --pretty=oneline --color
+  edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
+  add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+  graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format::  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
+[core]
+	excludefiles = /home/mo/.gitignore
+[color]
+	diff = auto
+	status = auto
+	branch = auto
