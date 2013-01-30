@@ -130,6 +130,10 @@ endfunction
 " cterm=reverse,underline,bold
 set t_Co=256
 
+" Normal
+hi Normal               ctermbg=NONE    ctermfg=15
+" Comment
+hi Comment              ctermbg=NONE    ctermfg=240
 " Number
 hi LineNr               ctermbg=NONE    ctermfg=238
 " Folds
@@ -160,13 +164,13 @@ hi VertSplit            ctermbg=233    ctermfg=238    cterm=NONE
 hi Error                ctermbg=NONE   ctermfg=1      cterm=bold term=bold
 hi ErrorMsg             ctermbg=NONE   ctermfg=1      cterm=NONE term=NONE
 " Visual
-hi Visual               ctermbg=237    ctermfg=NONE
-hi VisualNOS            ctermbg=237    ctermfg=NONE
+hi Visual               ctermbg=236    ctermfg=NONE
+hi VisualNOS            ctermbg=236    ctermfg=NONE
 " Tab Completion
-hi Pmenu                ctermbg=7      ctermfg=8
-hi PmenuSel             ctermbg=5      ctermfg=15
+hi Pmenu                ctermbg=235    ctermfg=15
+hi PmenuSel             ctermbg=7      ctermfg=1
 " CtrlP
-hi CtrlPMatch           ctermbg=Magenta
+hi CtrlPMatch           ctermbg=11     ctermfg=0      cterm=reverse
 " Signs
 " for e.g. syntastic
 hi SignColumn           ctermbg=237
