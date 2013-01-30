@@ -37,3 +37,9 @@
 [submodule "vim/bundle/lang-markdown-folding"]
 	path = vim/bundle/lang-markdown-folding
 	url = https://github.com/nelstrom/vim-markdown-folding.git
+[submodule "vim/bundle/supertab"]
+	path = vim/bundle/supertab
+	url = https://github.com/ervandew/supertab.git
+[submodule "vim/bundle/color-256-grayvim"]
+	path = vim/bundle/color-256-grayvim
+	url = https://github.com/vim-scripts/256-grayvim.git
