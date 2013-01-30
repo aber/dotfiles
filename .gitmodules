@@ -34,3 +34,6 @@
 [submodule "vim/bundle/color-solarized"]
 	path = vim/bundle/color-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule "vim/bundle/lang-markdown-folding"]
+	path = vim/bundle/lang-markdown-folding
+	url = https://github.com/nelstrom/vim-markdown-folding.git
