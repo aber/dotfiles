@@ -68,6 +68,7 @@ let g:mapleader = ","
 " Use the same symbols as TextMate for tabstops and EOLs
 set number
 set listchars=tab:▸\ ,eol:¬
+set cursorline
 
 " %%% key mappings %%%
 
@@ -184,8 +185,8 @@ hi User0        ctermfg=253 ctermbg=125 cterm=NONE
 " %%% Cursor %%%
 
 if has ("autocmd")
-  au InsertEnter * set nocul
-  au InsertLeave * set cul
+  au InsertEnter * hi CursorLine ctermbg=NONE | hi CursorLineNr ctermbg=NONE
+  au InsertLeave * hi CursorLine ctermbg=234  | hi CursorLineNr ctermbg=234
   "autocmd VimEnter,VimLeave * silent !tmux set status
 endif
 
