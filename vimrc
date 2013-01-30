@@ -137,7 +137,9 @@ hi FoldColumn           ctermbg=NONE    ctermfg=238  cterm=bold
 set fillchars+=fold:\ 
 " TabLine
 hi TabLine              ctermbg=234    ctermfg=245    cterm=NONE
+hi TabLineMod           ctermbg=234    ctermfg=99     cterm=NONE
 hi TabLineSel           ctermbg=99     ctermfg=237    cterm=NONE
+hi TabLineSelMod        ctermbg=99     ctermfg=237    cterm=bold
 hi TabLineFill          ctermbg=NONE   ctermfg=245    cterm=NONE
 " CursorLine
 hi CursorLine           ctermbg=234    ctermfg=NONE   cterm=NONE
@@ -274,21 +276,26 @@ if exists("+showtabline")
              let buflist = tabpagebuflist(i)
              let winnr = tabpagewinnr(i)
              let s .= '%' . i . 'T'
-             let s .= (i == t ? '%1*' : '%2*')
+             "let s .= (i == t ? '%1*' : '%2*')
              "let s .= ' '
              "let s .= i . ':'
              "let s .= winnr . '/' . tabpagewinnr(i,'$')
              "let s .= ' %*'
-             let s .= (i == t ? '%#TabLineSel#' : '%#TabLine#')
+             if getbufvar(buflist[winnr - 1], "&mod")
+               let s .= (i == t ? '%#TabLineSelMod#' : '%#TabLineMod#')
+               let s .= ' '.i.'*'
+             else
+               let s .= (i == t ? '%#TabLineSel#' : '%#TabLine#')
+               let s .= ' '.i.' '
+             endif
              let file = bufname(buflist[winnr - 1])
              " see :h filename-modifiers
              let file = fnamemodify(file, ':p:t')
              if file == ''
-                 let file = '[No Name]'
+                 let file = 'NoNa'
              endif
-             let s .= ' '.i.':'
              let s .= file
-             let s .= (i == t ? '%m' : '')
+             "let s .= (i == t ? '%m' : '')
              let s .= ' '
              let i = i + 1
          endwhile
