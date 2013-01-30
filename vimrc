@@ -66,6 +66,7 @@ let g:mapleader = ","
 " %%% display %%%
 
 " Use the same symbols as TextMate for tabstops and EOLs
+set number
 set listchars=tab:▸\ ,eol:¬
 
 " %%% key mappings %%%
