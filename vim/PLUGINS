@@ -40,3 +40,13 @@ vroom
 + less
 + ruby
 + solarized
+" lusty-explorer
+" lusty-juggler
+drupal-snippets https://github.com/technosophos/drupal-snippets.git
+" drupal-vim
++ supertab
+" easymotion
+" rename2
+" kwbd
+? jquery
+" xterm-color-table
