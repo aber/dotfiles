@@ -1,4 +1,3 @@
-
 "
 " -------------> URLs <--------------------
 " http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim
@@ -47,7 +46,7 @@ set showcmd                     " display incomplete commands
 filetype plugin indent on       " load file type plugins + indentation
 
 "" Whitespace
-set nowrap                      " don't wrap lines
+set wrap                      " don't wrap lines
 set tabstop=2 shiftwidth=2      " a tab is two spaces (or set this to 4)
 set expandtab                   " use spaces, not tabs (optional)
 set backspace=indent,eol,start  " backspace through everything in insert mode
@@ -67,7 +66,8 @@ let g:mapleader = ","
 
 " Use the same symbols as TextMate for tabstops and EOLs
 set number
-set listchars=tab:▸\ ,eol:¬
+set list
+set listchars=tab:▸\ ,eol:¬,trail:·    " help listchars
 set cursorline
 
 " %%% key mappings %%%
@@ -230,7 +230,7 @@ if has("autocmd")
   " Syntax of these languages is fussy over tabs Vs spaces
   autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
   autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-   
+
   " Treat .rss files as XML
   autocmd BufNewFile,BufRead *.rss setfiletype xml
   autocmd BufNewFile,BufRead *.inc setfiletype php
