@@ -74,6 +74,9 @@ set cursorline
 set fillchars+=fold:\ 
 set fillchars+=vert:\ 
 
+" syntastic
+let g:syntastic_javascript_checker = "jshint"
+
 " %%% key mappings %%%
 
 nnoremap <leader><leader> <c-^>
