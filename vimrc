@@ -69,6 +69,10 @@ set number
 set list
 set listchars=tab:▸\ ,eol:¬,trail:·    " help listchars
 set cursorline
+     
+" set fcs?
+set fillchars+=fold:\ 
+set fillchars+=vert:\ 
 
 " %%% key mappings %%%
 
@@ -139,35 +143,35 @@ hi LineNr               ctermbg=NONE    ctermfg=238
 " Folds
 hi Folded               ctermbg=233     ctermfg=242  cterm=NONE
 hi FoldColumn           ctermbg=NONE    ctermfg=238  cterm=bold
-set fillchars+=fold:\ 
 " TabLine
 hi TabLine              ctermbg=234    ctermfg=245    cterm=NONE
 hi TabLineMod           ctermbg=234    ctermfg=99     cterm=NONE
-hi TabLineSel           ctermbg=99     ctermfg=237    cterm=NONE
-hi TabLineSelMod        ctermbg=99     ctermfg=237    cterm=bold
+hi TabLineSel           ctermbg=99     ctermfg=234    cterm=NONE
+hi TabLineSelMod        ctermbg=99     ctermfg=232    cterm=bold
 hi TabLineFill          ctermbg=NONE   ctermfg=245    cterm=NONE
 " CursorLine
 hi CursorLine           ctermbg=234    ctermfg=NONE   cterm=NONE
 hi CursorColumn         ctermbg=234    ctermfg=NONE
 hi CursorLineNr         ctermbg=234    ctermfg=99
 " StatusLine
+" when StatusLine == StatusLineNC fill characters (^) appear in active
 hi StatusLine           ctermbg=233    ctermfg=240    cterm=NONE
-hi StatusLineNC         ctermbg=233    ctermfg=240    cterm=NONE
+hi StatusLineNC         ctermbg=233    ctermfg=236   cterm=NONE
 " Search 3,11
 hi IncSearch            ctermbg=11     ctermfg=0
 hi Search               ctermbg=11     ctermfg=0
-" hi NoneText
+" NonText e.g. eol chars
+hi NonText              ctermbg=NONE   ctermfg=238
 " Split
-set fillchars+=vert:\ 
 hi VertSplit            ctermbg=233    ctermfg=238    cterm=NONE
 " Error
-hi Error                ctermbg=NONE   ctermfg=1      cterm=bold term=bold
+hi Error                ctermbg=237    ctermfg=1      cterm=bold term=bold
 hi ErrorMsg             ctermbg=NONE   ctermfg=1      cterm=NONE term=NONE
 " Visual
 hi Visual               ctermbg=236    ctermfg=NONE
 hi VisualNOS            ctermbg=236    ctermfg=NONE
 " Tab Completion
-hi Pmenu                ctermbg=235    ctermfg=15
+hi Pmenu                ctermbg=237    ctermfg=15
 hi PmenuSel             ctermbg=7      ctermfg=1
 " CtrlP
 hi CtrlPMatch           ctermbg=11     ctermfg=0      cterm=reverse
@@ -175,6 +179,9 @@ hi CtrlPMatch           ctermbg=11     ctermfg=0      cterm=reverse
 " for e.g. syntastic
 hi SignColumn           ctermbg=237
 hi SpellBad             ctermbg=1
+" Parenthesis match
+hi MatchParen           ctermbg=99     ctermfg=0 
+
 " User colors
 hi User1        ctermfg=253 ctermbg=238 cterm=NONE
 hi User2        ctermfg=253 ctermbg=237 cterm=NONE
