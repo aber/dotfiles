@@ -43,3 +43,6 @@
 [submodule "vim/bundle/color-256-grayvim"]
 	path = vim/bundle/color-256-grayvim
 	url = https://github.com/vim-scripts/256-grayvim.git
+[submodule "vim/bundle/syntastic"]
+	path = vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
