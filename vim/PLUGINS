@@ -22,9 +22,10 @@ css-color
 endwise
 matchit
 " nerdcommenter
+commentary
+" tcomment
 vroom
 " command-t  https://github.com/wincent/Command-T
-commentary
 vim-for-drupal
 phpfolding
 switch-colorschemes
@@ -50,3 +51,8 @@ drupal-snippets https://github.com/technosophos/drupal-snippets.git
 " kwbd
 ? jquery
 " xterm-color-table
+" vim-haml
+" vim-rails
+" vim-markdown
+" dwm.vim
++ vim-ruby
