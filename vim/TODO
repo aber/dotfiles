@@ -1,0 +1,29 @@
+hi Marks
+[] bessere Erreichbarkeit
+
+<C-W>], <C-W>z, :pc, <C-W>{
+:ts, :pt tag, 
+
+zf<m>
+zE, zo, zO, zc, zC, <visual>zf, <n>zF, :<r>fo, za, zA, zd, zD
+
+& (repeat subs)
+
+insert mode
+<C-R>=expr
+
+cursor movements hjkl, gj, gk
+screen scroll zL, <C-U>
+fFtT movements f, F, t, T, ; ,
+file movements ]], [], [[, [], [{, [(, 
+line movements g$
+word movements ge, b, w, W
+<C-K>c1c2
+
+:!, !, :w, :r 
+
+:args, :his, :ju, 
+
+buffer :bm, :ba, :vert ba
+
+undo, text state g-
