@@ -185,6 +185,11 @@ hi SignColumn           ctermbg=237
 hi SpellBad             ctermbg=1
 " Parenthesis match
 hi MatchParen           ctermbg=99     ctermfg=0 
+" Diff
+hi DiffAdd              ctermbg=28
+hi DiffDelete           ctermbg=161
+hi DiffChange           ctermbg=23
+hi DiffText             ctermbg=130
 
 " User colors
 hi User1        ctermfg=253 ctermbg=238 cterm=NONE
