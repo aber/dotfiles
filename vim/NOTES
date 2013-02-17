@@ -28,6 +28,11 @@ buffer :bm, :ba, :vert ba
 
 undo, text state g-
 
+surround.vim cs"', ds', ysiw", yssb, ...
+:help ctermcolor
+vim sync windows
+conceal
+:vertical resize +10, 10 / :resize +10, 10
 
 zz, zm, zt, zb, zH, zL, zh, zl, n%, gg, G, nL, nH, ngg/nG, M, H, L
 p, P, gp, gP, [p, 

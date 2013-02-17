@@ -61,4 +61,15 @@ drupal-snippets https://github.com/technosophos/drupal-snippets.git
 " vim-endwise
 " vim-abolish
 " dbext.vim
+" cscope_maps.vim
+" vim-pandoc
+" vim notes
+" vim outliner
+" shell.vim
+" utl.vim
+vim-latex
+tex 9
+atp
+latex-box
+auctex
 " todo.txt-vim
