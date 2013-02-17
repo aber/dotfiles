@@ -27,3 +27,53 @@ word movements ge, b, w, W
 buffer :bm, :ba, :vert ba
 
 undo, text state g-
+
+
+zz, zm, zt, zb, zH, zL, zh, zl, n%, gg, G, nL, nH, ngg/nG, M, H, L
+p, P, gp, gP, [p, 
+C-E, C-Y, C-B, C-F
+]m
+%, [(, ]), {, ]}
+C-], C-T, K, gf
+n(, n), n{, n}
+:rdx, rw>>file
+e, 0, g0, ^, $, g$
+B, w, W, gE, ge, fc, Fc, E
+g~move, gUU, guu, gum, gUm
+u, U, C-U, C-R
+ins: C-A, C-P, C-N, C-W, C-K
+
+C-W C-W, C-W h...
+C-O
+gv, C-V, V
+vis: aw, as, ap, ab, aB, o
+o, O, a, A, i, I, gI
+#, *, g*, g#
+=, ==, 
+
+hmm...
+'., 'x, `x, mx
+
+
+" Line completion: in 'insert mode' it provides you with 
+" a list of existing lines to choose from in your current 
+" file. 
+ctrl-x ctrl-l 
+
+" Word completion: in 'insert mode' it provides you with
+" a list of possible matching words starting with the 
+" next word available in your current file.
+ctrl-n
+
+" Word completion: in 'insert mode' it provides you with
+" a list of possible matching words going back from the 
+" current word in your current file.
+ctrl-p
+
+" Searching a dictionary for word completion is done by 
+" first setting the dictionary to search:
+:set dictionary=/usr/share/dict/words
+
+" Then try to match a word with:
+ctrl-x ctrl-k
+
