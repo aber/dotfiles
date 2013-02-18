@@ -5,7 +5,7 @@ hi Marks
 :ts, :pt tag, 
 
 zf<m>
-zE, zo, zO, zc, zC, <visual>zf, <n>zF, :<r>fo, za, zA, zd, zD
+zE, zo, zO, zc, zC, <visual>zf, <n>zF, :<r>fo, za, zA, zd, zD, zv, zn, zN, zj, zk
 
 & (repeat subs)
 
@@ -15,9 +15,9 @@ insert mode
 cursor movements hjkl, gj, gk
 screen scroll zL, <C-U>
 fFtT movements f, F, t, T, ; ,
-file movements ]], [], [[, [], [{, [(, 
-line movements g$
-word movements ge, b, w, W
+file movements ]], [], [[, [], [{, [(,, [m, ]m, [z, ]z
+line movements g$, 0, ^, $
+word movements b, B, w, W, gE, ge, fc, Fc, E
 <C-K>c1c2
 
 :!, !, :w, :r 
@@ -34,17 +34,23 @@ vim sync windows
 conceal
 :vertical resize +10, 10 / :resize +10, 10
 
-zz, zm, zt, zb, zH, zL, zh, zl, n%, gg, G, nL, nH, ngg/nG, M, H, L
 p, P, gp, gP, [p, 
-C-E, C-Y, C-B, C-F
-]m
+
+" movements
+zz, zm, zt, zb, zH, zL, zh, zl, <n>%, gg, G, <n>gg/<n>G, <n>L, <n>H
+" jump cursor
+M, H, L
+" scrolling
+C-E, C-Y, C-B, C-F, C-D
+
+" matches
 %, [(, ]), {, ]}
+
 C-], C-T, K, gf
 n(, n), n{, n}
 :rdx, rw>>file
 e, 0, g0, ^, $, g$
-B, w, W, gE, ge, fc, Fc, E
-g~move, gUU, guu, gum, gUm
+g~move, gUU, guu, gu<m>, gU<m>, ~
 u, U, C-U, C-R
 ins: C-A, C-P, C-N, C-W, C-K
 
@@ -81,4 +87,20 @@ ctrl-p
 
 " Then try to match a word with:
 ctrl-x ctrl-k
+
+" lookup
+gf, K, Ctrl-]
+Ctrl-O
+
+" marks
+ma, mA, 'a, '., `a
+
+" tags, tag stack
+:tj
+
+" insert mode
+Ctrl-A, Ctrl-P, Ctrl-N, Ctrl-W, Ctrl-V<n>
+
+" filter through cmd
+<n>!!cmd
 
