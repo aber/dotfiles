@@ -104,3 +104,11 @@ Ctrl-A, Ctrl-P, Ctrl-N, Ctrl-W, Ctrl-V<n>
 " filter through cmd
 <n>!!cmd
 
+" insert current filename
+insert mode: C-R=expand("%:f:t")
+
+" file modifiers
+%:t:r  name w/o ext
+%:t    name w/ ext
+%:p:h  absolute dir path
+%:h    relative dir path
