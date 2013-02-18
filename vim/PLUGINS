@@ -61,6 +61,8 @@ drupal-snippets https://github.com/technosophos/drupal-snippets.git
 " vim-endwise
 " vim-abolish
 " dbext.vim
+" vim-speeddating
+" vim-flatfoot
 " cscope_maps.vim
 " vim-pandoc
 " vim notes
