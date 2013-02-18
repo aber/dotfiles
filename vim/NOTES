@@ -1,0 +1,114 @@
+hi Marks
+[] bessere Erreichbarkeit
+
+<C-W>], <C-W>z, :pc, <C-W>{
+:ts, :pt tag, 
+
+zf<m>
+zE, zo, zO, zc, zC, <visual>zf, <n>zF, :<r>fo, za, zA, zd, zD, zv, zn, zN, zj, zk
+
+& (repeat subs)
+
+insert mode
+<C-R>=expr
+
+cursor movements hjkl, gj, gk
+screen scroll zL, <C-U>
+fFtT movements f, F, t, T, ; ,
+file movements ]], [], [[, [], [{, [(,, [m, ]m, [z, ]z
+line movements g$, 0, ^, $
+word movements b, B, w, W, gE, ge, fc, Fc, E
+<C-K>c1c2
+
+:!, !, :w, :r 
+
+:args, :his, :ju, 
+
+buffer :bm, :ba, :vert ba
+
+undo, text state g-
+
+surround.vim cs"', ds', ysiw", yssb, ...
+:help ctermcolor
+vim sync windows
+conceal
+:vertical resize +10, 10 / :resize +10, 10
+
+p, P, gp, gP, [p, 
+
+" movements
+zz, zm, zt, zb, zH, zL, zh, zl, <n>%, gg, G, <n>gg/<n>G, <n>L, <n>H
+" jump cursor
+M, H, L
+" scrolling
+C-E, C-Y, C-B, C-F, C-D
+
+" matches
+%, [(, ]), {, ]}
+
+C-], C-T, K, gf
+n(, n), n{, n}
+:rdx, rw>>file
+e, 0, g0, ^, $, g$
+g~move, gUU, guu, gu<m>, gU<m>, ~
+u, U, C-U, C-R
+ins: C-A, C-P, C-N, C-W, C-K
+
+C-W C-W, C-W h...
+C-O
+gv, C-V, V
+vis: aw, as, ap, ab, aB, o
+o, O, a, A, i, I, gI
+#, *, g*, g#
+=, ==, 
+
+hmm...
+'., 'x, `x, mx
+
+
+" Line completion: in 'insert mode' it provides you with 
+" a list of existing lines to choose from in your current 
+" file. 
+ctrl-x ctrl-l 
+
+" Word completion: in 'insert mode' it provides you with
+" a list of possible matching words starting with the 
+" next word available in your current file.
+ctrl-n
+
+" Word completion: in 'insert mode' it provides you with
+" a list of possible matching words going back from the 
+" current word in your current file.
+ctrl-p
+
+" Searching a dictionary for word completion is done by 
+" first setting the dictionary to search:
+:set dictionary=/usr/share/dict/words
+
+" Then try to match a word with:
+ctrl-x ctrl-k
+
+" lookup
+gf, K, Ctrl-]
+Ctrl-O
+
+" marks
+ma, mA, 'a, '., `a
+
+" tags, tag stack
+:tj
+
+" insert mode
+Ctrl-A, Ctrl-P, Ctrl-N, Ctrl-W, Ctrl-V<n>
+
+" filter through cmd
+<n>!!cmd
+
+" insert current filename
+insert mode: C-R=expand("%:f:t")
+
+" file modifiers
+%:t:r  name w/o ext
+%:t    name w/ ext
+%:p:h  absolute dir path
+%:h    relative dir path
