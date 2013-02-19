@@ -49,3 +49,6 @@
 [submodule "vim/bundle/lorem"]
 	path = vim/bundle/lorem
 	url = https://github.com/vim-scripts/loremipsum.git
+[submodule "vim/bundle/unimpaired"]
+	path = vim/bundle/unimpaired
+	url = https://github.com/tpope/vim-unimpaired.git
