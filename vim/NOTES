@@ -112,3 +112,86 @@ insert mode: C-R=expand("%:f:t")
 %:t    name w/ ext
 %:p:h  absolute dir path
 %:h    relative dir path
+
+
+Langs
+====================
+drupal
+php
+  space, 4, .php, .inc, .module
+markdown
+cucumber
+ruby
+javascript
+  space, 4
+coffeescript
+rspec
+less/sass/scss
+  space, 2, .less
+haml
+
+snippets
+====================
+drupal
+php
+
+keybindings
+====================
+cursorline, cursorcolumn
+
+toggle wrap
+toggle number
+toggle list
+toggle expandtab
+toggle TagBar
+toggle NERDTree
+toggle spellcheck
+toggle paste
+
+par formatting
+
+themes
+====================
+ir_block, jellybeans, vylight, delek, desert, koehler
+vim-colorschemes
+samplerpack
+solarized
+vividchalk
+irbblack
+
+dotfiles
+===============
+tpope
+gary bernhardt
+
+
+snippets
+------------------
+console.log
+jshint
+jslint
+
+keys (janus)
+------------------
+ib, aB : ()
+iB, aB : {}
+i", a" : "
+it, at : tags
+iw, aw : word
+
+f<char> : find character <char>, ; prev . next
+
+> : indent
+== : fix indent
+C-v <tab> : <tab>
+
+
+????
+> . u
+:A
+f<char> ; ,
+
+
+commands
+---------------
+:scriptnamest

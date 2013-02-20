@@ -3,7 +3,6 @@
 + fugitive
 + gnupg
 gundo
-mw-utils
 " nerdtree
 snipmate
 snipmate-snippets
@@ -75,3 +74,10 @@ atp
 latex-box
 auctex
 " todo.txt-vim
+" MRU
+" FuzzyFinder
+" zoomwin
+" sugartab
+" nrrwrgn
+" slimux
+" coffeescript
