@@ -1,6 +1,17 @@
 set gui=none
+set scrollbars=true
 set autocomplete=false
 
 nmap gv :buffer #<cr>
 
 set defsearch=google
+
+" hi ContentSeparator border:1px solid black
+" hi Normal
+" hi StatusLine
+" 
+" hi CompGroup    background:white
+" hi CompItem[selected]    background:magenta; color:black; border-top: 1px solid black; border-bottom: 1px solid black;
+" hi CompDesc    color:black;
+" hi CompTitle>*   color: #333; border-top: 1px solid black; border-bottom: 1px solid #BBB; padding: 1px 0.5ex;
+" hi CmdLine background: gray; color: black; -moz-transition: all 0.25s;
