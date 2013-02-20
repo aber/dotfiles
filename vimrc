@@ -33,6 +33,7 @@
 " desert, pablo, peachpuff, torte, zellner
 " solarized
 "
+" colors orange: 166
 " --------------------------------------------
 
 runtime bundle/pathogen/autoload/pathogen.vim
