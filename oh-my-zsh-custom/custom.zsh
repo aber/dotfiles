@@ -26,3 +26,11 @@ fi
 
 # source rupa/z
 source $ZSH_CUSTOM/z/z.sh
+
+# Move to where the arguments belong.
+function after-first-word() {
+  zle beginning-of-line
+  zle forward-word
+}
+zle -N after-first-word
+bindkey "^X1" after-first-word
