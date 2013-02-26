@@ -1,0 +1,129 @@
+http://www.rayninfo.co.uk/tips/zshtips.html
+http://chneukirchen.org/blog/archive/2008/02/10-zsh-tricks-you-may-not-know.html
+# http://chneukirchen.org/blog/archive/2011/02/10-more-zsh-tricks-you-may-not-know.html
+http://zsh.sourceforge.net/Guide/zshguide.html
+http://linux.die.net/man/1/zshexpn
+http://strcat.de/zsh/#tipps
+http://grml.org/zsh/zsh-lovers.html
+http://wiki.ofb.net/?JTRZshComments
+
+history expansion       !
+  modifieres            :
+process substitution     <(), >() =()
+parameter expansion     ${}
+  flags
+command substitution    $()
+arithmetic expansion    $[]
+brace expansion         {}
+filename expansion      ~
+filename generation, glob
+  modifier              ()
+
+# completion
+<Tab>  expand, list
+C-D    only list
+
+# key commands
+Esc .     last arg
+Esc "     quote whole line
+Esc q     insert immediate command
+Esc CR    newline
+
+# expansion
+!:t   basename oof last arg
+!"    a beggining of line turns of hist exp
+!!    last cmd
+!*    all args
+!$    prev last arg
+!^    prev first arg
+!:n   nth arg
+!:1   (first previous parameter)
+!-2:2 (second parameter of second but last command)
+!str  cmd starting with "str"
+!?str  cmd containing "str" (end with ? if modifiers appended)
+!#    current comd line
+echo !:2-3   # echo previous parameters 2 to 3 *N*
+echo !:2*    # echo previous parameters 2 onwards  *N*
+echo !:2-    # echo previous parameters 2 onwards omitting last *N*
+cd !?ls<TAB>   #get command and parameters of a previous ls command
+cd !?ls?:*<TAB>   #get (just) parameters of a previous ls command
+
+!!:s/fred/joe/        # edit previous command replace first fred by joe
+!!:gs/fred/joe/       # edit previous command replace all fred by joe
+mv Licence\ to\ Print\ Money.pdf !#^:gs/\\ //  # rename file removing spaces
+^fred^joe             # edit/modify previous command replace fred by joe
+^str1^str2^:u:p       # replace str1 by str2 change case and just display
+
+*
+**
+***   like ** but follows symlinks
+
+=firefox   full path (like which ls)
+
+<(cmd)    returns filename of output of command in filename
+          (For example, use diff <(ruby foo.rb) <(ruby-1.9 foo.rb) to compare two program outputs)
+=(cmd)    returns output of command in file
+
+" globbing
+<3-17>    glob range 3-17
+
+" glob modifier
+ls *.pdf(n)    sort numerically
+ls *.pdf(om)   sort by mtime
+ls *(.)           # list just regular files *N*
+ls *(/)           # list just directories *N*
+vi *(.om[1])      # vi newest file
+vi -p *(.om[1,3]) # open 3 newest files in tabs (gvim)
+vi *(m0)          # re-edit all files changed today!
+ls *(^m0)         # files NOT modified today
+ls -l *(m4)       # list files modified exactly 4 days ago
+ls -l *(.m4)      # list files modified exactly 4 days ago (ignore directories)
+vi **/main.php    # where ever it is in hierarchy
+ls -l **/main.{php,js,css}    #    *N*
+ls fred^erick*    # list all files fred* except frederick*    *N*
+ls *.^pdf         # list all but pdf's *NN*
+ls (x*~x[3-5])    # list files x* except x3 to x5
+ls x^[3-5]*       # list files x* except x3 to x5 *N*
+ls **/*~*/.git/*  # ignore all git subdirectories *~* matches a path *N*
+vi !$:r.php       # vi last parameter but change extension to .php
+ls *(.L0)         # list pesky empty files (yes that is a zero) *N*
+ls -l *(L-2)      # list file size less than 2 bytes *N*
+ls -l *(.L-20)    # list file size less than 20 bytes - . ignore directories *N*
+ls -l *(Lk+100)   # list file size larger/greater than 100kb *N*
+ls -l *(Lm+2)     # list file size larger/greater than 2 mbs *N*
+ls **/*(.Lm+10)   # list files larger than 10MB anywhere in hierarchy *N*
+ls -hlS **/*(.Lm+2)  | less  # list largest files  largest first  *N*
+
+# counts requires extended globbing *N*
+setopt EXTENDED_GLOB   # lots of clever stuff requires this
+ls DATA_[0-9](#c3).csv  # match all files DATA_nnn.csv  *N*
+ls a(#c3).txt     # match aaa.txt   *N*
+ls DATA_[0-9](#c4,7).csv  # match DATA_nnnn.csv to DATA_nnnnnnn.txt *N*
+ls DATA_[0-9](#c4,).csv  # match DATA_nnnn.csv to DATA_nnnnn.txt etc *N*
+ls DATA_[0-9](#c,4).csv  # match DATA_n.csv to DATA_nnn.txt *N*
+
+
+" repeating
+repeat 3 ls
+
+
+for i in **/*.gif; convert $i $i:r.jpg
+
+# Inline aliases, zsh -g aliases can be anywhere in command line
+alias -g G='| grep -'
+alias -g L='| less'
+# suffix based alias
+alias -s jpg='/c/program\ files/IrfanView/i_view32.exe' # now just type the image name to launch irfanview
+
+
+# brilliant will change your life
+dirs -v                         # *N*
+cd ~5                           # cd to fifth directory in directory stack
+cd -<tab complete> then type number of directory
+dirs -p                         # display recent directories *N*
+cp file ~1                      # where 1 is first entry in pushd stack
+pushd +2                        # cd to 3rd entry in pushd stack
+
+# sibling dir
+# from /home/old/dir to /home/new/dir
+cd old new
