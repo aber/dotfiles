@@ -272,7 +272,7 @@ if has("autocmd")
 
   au BufNewFile,BufRead *.roh.md syn region  zettelNotiz   start="\[" end="\]" oneline
   au BufNewFile,BufRead *.roh.md hi zettelNotiz ctermbg=Yellow ctermfg=Black
-  au BufNewFile,BufRead *.roh.md set tw=0 wrap
+  au BufNewFile,BufRead *.roh.md set tw=0 wrap nolist linebreak wrapmargin=0
   au BufNewFile,BufRead *.roh.md nmap ,p :!pandoc -f markdown -t latex -o %:p:h/draft.pdf --toc --template=%:p:h/template.tex -V documentclass=scrartcl -V font-size=12pt %  && zathura %:p:h/draft.pdf<cr>
 endif
 

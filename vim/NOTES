@@ -96,7 +96,9 @@ Ctrl-O
 ma, mA, 'a, '., `a
 
 " tags, tag stack
-:tj
+Ctrl-], Ctrl-t
+:tj (jump), :ta (all), :ts (list)
+:tn, :tp, :tf, :tl (next, prev, first, last)
 
 " insert mode
 Ctrl-A, Ctrl-P, Ctrl-N, Ctrl-W, Ctrl-V<n>
@@ -195,3 +197,6 @@ f<char> ; ,
 commands
 ---------------
 :scriptnamest
+
+" CtrlP
+mappings
