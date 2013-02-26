@@ -81,3 +81,5 @@ auctex
 " nrrwrgn
 " slimux
 " coffeescript
+" vimux
+" textobj-user

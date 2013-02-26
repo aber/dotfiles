@@ -1,3 +1,7 @@
+" concepts:
+" text objects: ib, ab, ...
+" change: ., repeat, undo
+
 hi Marks
 [] bessere Erreichbarkeit
 
@@ -200,3 +204,30 @@ commands
 
 " CtrlP
 mappings
+
+" arglist
+:args, :next, :n, :prev, :p, :first, :last
+@: " repeat last ex cmd
+" bufferlist
+:ls
+
+" Books
+Practical vim
+
+" dot command, repeats last change, undos, ...
+" concept of a "change", brushstroke, Esc
+.
+
+" vimcasts 43
+:argdo, :bufdo
+insert last ex command <C-R>: (register :)
+set hidden
+subst flags: e (no error alerts)
+:silent (omit output)
+:silent! (even errors)
+:edit! (revert to last saved state of file)
+:update (write only if modified)
+
+" calculation
+line pipe to bc: !!bc, !bc
+<number>C-A  to add to next number
