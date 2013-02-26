@@ -52,3 +52,6 @@
 [submodule "vim/bundle/unimpaired"]
 	path = vim/bundle/unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
+[submodule "oh-my-zsh-custom/z"]
+	path = oh-my-zsh-custom/z
+	url = https://github.com/rupa/z.git

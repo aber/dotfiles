@@ -23,3 +23,6 @@ if [[ -x /usr/bin/ack-grep ]]; then
   alias agrep=ack-grep
   alias grep="ack-grep -a"
 fi
+
+# source rupa/z
+source $ZSH_CUSTOM/z/z.sh
