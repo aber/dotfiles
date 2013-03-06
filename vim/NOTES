@@ -231,3 +231,24 @@ subst flags: e (no error alerts)
 " calculation
 line pipe to bc: !!bc, !bc
 <number>C-A  to add to next number
+
+" Learning Vimscript the Hard Way
+set relativenumber, spell, 
+ZZ write and close
+*noremap no recursive mapping of keys
+<leader>, <localleader>
+set, setlocal
+map <buffer> ...
+use eg: ,ev and ,sv for updating of $MYVIMRC (edit, source)
+" mapping normal mode to jk, unlearning <esc>
+:inoremap jk <esc>
+:inoremap <esc> <nop>
+more specific mappings win
+:autocmd, :h autocmd-events
+same for arrow keys
+"snippet" system with :iabbrev <buffer>, local mappings
+:augroup combines autocmds, autocmd! to clear group
+operator-pending mappings, :onoremap m movement
+:normal!
+<C-U> deletes '<,'> when in cmd mode
+http://learnvimscriptthehardway.stevelosh.com/chapters/16.html
