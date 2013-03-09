@@ -10,7 +10,7 @@ TERM=xterm-256color
 ZBEEP=
 EDITOR=vi
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+[[ -s "/usr/local/share/chruby/chruby.sh" ]] && source "/usr/local/share/chruby/chruby.sh" # Load chruby into a shell session *as a function*
 
 #PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
