@@ -232,6 +232,7 @@ subst flags: e (no error alerts)
 line pipe to bc: !!bc, !bc
 <number>C-A  to add to next number
 
+
 " Learning Vimscript the Hard Way
 set relativenumber, spell, 
 ZZ write and close
@@ -252,3 +253,67 @@ operator-pending mappings, :onoremap m movement
 :normal!
 <C-U> deletes '<,'> when in cmd mode
 http://learnvimscriptthehardway.stevelosh.com/chapters/16.html
+
+
+" Using tabs like buffers
+" http://stackoverflow.com/questions/102384/using-vims-tabs-like-buffers
+" No No!
+" Buffers, Windows, Tabs
+set hidden
+:ls, :bn, :bp, b #, <C-6>, #<C-6>
+:bd, :bw " close buffer
+:tab sball
+:h siwtchbuf
+:set switchbuf=usetab,newtab   useopen
+map gf :tabe <cfile><CR>
+<C-PgUp> <C-PgDn>
+<C-w>gf <C-w>T (move current win to new tab)
+
+" variables, options
+let var = 0
+let &wrap = 1 " option as var
+let &l:number = 1 " local option
+let &textwidth = &textwidth + 10
+echo @a " register as var
+echo @/ " last search phrase
+" variable scoping
+:h internal-variables
+let b:hello = "Hello" " buffer
+
+" if
+if, else, elseif endif
+falsy: 0, "foo", "foo10"
+truthy: 1+, "10foo", "123"
+== is settings senstive! eg case sensitive --> ==? (ic) ==# (noic)
+
+" functions
+if unscoped *must* start with capital letter!
+function, endfunction
+:call (return value thrown away)
+implicit return 0
+:h E124 function names
+
+repeat last ex cmd
+@: dann @@
+
+http://stolowski.blogspot.co.at/2011/07/finding-your-way-in-vim.html
+http://stackoverflow.com/questions/6135404/default-value-of-function-parameter-in-vim-script
+
+The moral of this story is that Vim is a lot like Javascript: it allows you to play fast and loose with types sometimes, but it's a really bad idea to do so because it will come back to bite you at some point.
+
+len(), Strlen(), split(), join(), toupper(), tolower()
+:execute "echo 'he'" " interpret string as vim command
+bufname("#")
+rightbelow, leftabove
+:normal, :normal! (no remappings take into account)
+execute "normal! " (parses specials like <cr> ...)
+:execute "normal! mqA;\<esc>`q" (add ; at end of line)
+
+" vim regexp
+:helpgrep
+
+" registers
+qa " record in reg a
+"ap " paste reg a
+"ad " put vis (as macro) into reg a, e.g. a modified macro
+
