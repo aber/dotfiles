@@ -52,6 +52,7 @@ set tabstop=2 shiftwidth=2      " a tab is two spaces (or set this to 4)
 set expandtab                   " use spaces, not tabs (optional)
 set backspace=indent,eol,start  " backspace through everything in insert mode
 set textwidth=0
+set linebreak                   " break at end of words
 
 "" Searching
 set hlsearch                    " highlight matches
@@ -107,6 +108,7 @@ nmap <F5> :set list! number!<CR>
 nmap <F6> :set wrap!<CR>
 nmap <F7> :NERDTreeToggle<CR>
 nmap <F8> :TagbarToggle<CR>
+nnoremap <space> za
 
 " Syntastic
 " :Error, :SyntasticToggleMode
