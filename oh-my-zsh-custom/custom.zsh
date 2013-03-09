@@ -25,7 +25,9 @@ if [[ -x /usr/bin/ack-grep ]]; then
 fi
 
 # source rupa/z
-source $ZSH_CUSTOM/z/z.sh
+if [[ -e $ZSH_CUSTOM/z/z.sh ]]; then
+  source $ZSH_CUSTOM/z/z.sh
+fi
 
 # Move to where the arguments belong.
 function after-first-word() {
