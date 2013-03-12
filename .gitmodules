@@ -55,3 +55,6 @@
 [submodule "oh-my-zsh-custom/z"]
 	path = oh-my-zsh-custom/z
 	url = https://github.com/rupa/z.git
+[submodule "vim/bundle/zencoding"]
+	path = vim/bundle/zencoding
+	url = http://github.com/mattn/zencoding-vim
