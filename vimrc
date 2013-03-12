@@ -230,9 +230,9 @@ function! NotizenFolds()
 endfunction
 
 " set the folded line text
-function! MarkdownFoldText()
-  return getline(v:foldstart).getline(v:foldstart+1)
-endfunction
+"function! MarkdownFoldText()
+"  return getline(v:foldstart).getline(v:foldstart+1)
+"endfunction
 
 function! SimpleFoldText()
   return getline(v:foldstart)
@@ -240,7 +240,19 @@ endfunction
 
 function! MarkdownFoldText()
   let foldsize = (v:foldend-v:foldstart)
-  return '--- '.getline(v:foldstart).' ('.foldsize.' lines)'
+  let charcount = 0
+  for i in range(v:foldstart, v:foldend)
+    let charcount += strlen(getline(i))
+  endfor
+  let lines = charcount / 75.0
+  let pagecount = lines / 35.0
+  let pagecount = pagecount * 4
+  let pagecount = floor(pagecount)
+  let pagecount = pagecount / 4.0
+  let pagecount += 0.25
+  "return '--- '.getline(v:foldstart).' ('.foldsize.' lines)'
+  let spaces = 60 - strwidth(getline(v:foldstart))
+  return strpart(getline(v:foldstart), 0, 60).repeat(' ',spaces).' ('.printf("%5.2f", pagecount).' Seiten)'
 endfunction
 
 set foldtext=SimpleFoldText()
@@ -272,10 +284,10 @@ if has("autocmd")
   au BufNewFile,BufRead *.notizen.md setlocal foldtext=MarkdownFoldText()
   au BufNewFile,BufRead *.notizen.md setlocal nocursorline
 
-  au BufNewFile,BufRead *.roh.md syn region  zettelNotiz   start="\[" end="\]" oneline
+  au BufNewFile,BufRead *.roh.md syn region  zettelNotiz   start="\[" end="\]" oneline conceal
   au BufNewFile,BufRead *.roh.md hi zettelNotiz ctermbg=Yellow ctermfg=Black
-  au BufNewFile,BufRead *.roh.md set tw=0 wrap nolist linebreak wrapmargin=0
-  au BufNewFile,BufRead *.roh.md nmap ,p :!pandoc -f markdown -t latex -o %:p:h/draft.pdf --toc --template=%:p:h/template.tex -V documentclass=scrartcl -V font-size=12pt %  && zathura %:p:h/draft.pdf<cr>
+  au BufNewFile,BufRead *.roh.md setlocal tw=0 wrap nolist linebreak wrapmargin=0
+  au BufNewFile,BufRead *.roh.md nnoremap <buffer> <leader>p :!pandoc -f markdown -t latex -o %:p:h/draft.pdf --toc --template=%:p:h/template.tex -V documentclass=scrartcl -V font-size=12pt %  && zathura %:p:h/draft.pdf<cr>
 endif
 
 " -----------> Tabline <-------------
