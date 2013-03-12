@@ -232,6 +232,14 @@ subst flags: e (no error alerts)
 line pipe to bc: !!bc, !bc
 <number>C-A  to add to next number
 
+" zencoding
+<C-Y>,
+html:5
+foo$*2 ($ --> 1, 2, ...)
+
+" reverse order of lines
+:g/^/m0 (whole file, see :h 12.4)
+:'<,'>!tac (pipe vis through tac)
 
 " Learning Vimscript the Hard Way
 set relativenumber, spell, 
@@ -351,3 +359,4 @@ expand(), fnamemodify()
 :echo split(globpath('.', '*'), '\n')
 :echo split(globpath('.', '**'), '\n')
 :help globpath(), filename-modifiers, wildcards, resolve(), simplify()
+
