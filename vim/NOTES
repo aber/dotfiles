@@ -317,3 +317,37 @@ qa " record in reg a
 "ap " paste reg a
 "ad " put vis (as macro) into reg a, e.g. a modified macro
 
+:h functions
+:h count-items
+repeat, strlen, strwidth, strpart
+
+" regexp, 4 modes
+magic, verymagic mode --> :h magic
+:h /pattern-overview
+searching / ? matching :match, :2match, :3match
+
+" custom motions?
+
+http://learnvimscriptthehardway.stevelosh.com/chapters/32.html
+word under cursor <cword>, <cWORD>
+word a-z, WORD non-blanks w W e E
+escape(), shellescape(), expand()
+:grep, :grep! (only fill quickfix list, no jump)
+:silent execute "grep! ..."
+C-W delete word back, C-U delete until begin of line
+==# case senstive
+@@ unnamed reg, eg when yanking
+:h operatorfunc, map-operator
+scope s:fname, <SID>fname(vars)
+
+List, Dictionary
+get(), has_key(), keys(), values()
+
+toggling options
+
+If a Vimscript variable refers to a function it must start with a capital letter.
+
+expand(), fnamemodify()
+:echo split(globpath('.', '*'), '\n')
+:echo split(globpath('.', '**'), '\n')
+:help globpath(), filename-modifiers, wildcards, resolve(), simplify()

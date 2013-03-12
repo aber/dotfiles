@@ -86,3 +86,5 @@ auctex
 " vim-nerdtree-tabs
 " minibufexpl
 " bufexplorer
+vim-indent-object
+vim-textobj-rubyblock
