@@ -369,3 +369,9 @@ expand(), fnamemodify()
 :echo split(globpath('.', '**'), '\n')
 :help globpath(), filename-modifiers, wildcards, resolve(), simplify()
 
+vimcasts #45
+%s/vimcasts\.\zscom/org/  " match only com!
+argdo, bufdo, windo
+regexp flags /ge global, no errors displayed
+vim -o * "open in split wins
+--> Qargs helper command, execute only on quickfix list buffers
