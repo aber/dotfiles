@@ -88,3 +88,4 @@ auctex
 " bufexplorer
 vim-indent-object
 vim-textobj-rubyblock
+" vim-orgmode
