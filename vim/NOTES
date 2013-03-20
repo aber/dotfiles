@@ -1,3 +1,9 @@
+"
+" http://stevelosh.com/blog/2011/09/writing-vim-plugins/
+"
+" Unit testing vimscript?
+"   https://bitheap.org/cram/ ?
+"
 " concepts:
 " text objects: ib, ab, ...
 " change: ., repeat, undo
@@ -200,7 +206,7 @@ f<char> ; ,
 
 commands
 ---------------
-:scriptnamest
+:scriptnames  " list all loaded plugins
 
 " CtrlP
 mappings
