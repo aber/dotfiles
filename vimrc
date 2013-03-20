@@ -36,8 +36,16 @@
 " colors orange: 166
 " --------------------------------------------
 
+" To disable a plugin, add it's bundle name to the following list
+let g:pathogen_disabled = ['atp', 'vim-latex', 'latex-box']
+" for some reason the csscolor plugin is very slow when run on the terminal
+" but not in GVim, so disable it if no GUI is running
+if !has('gui_running')
+  call add(g:pathogen_disabled, 'csscolor')
+endif
 runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
+call pathogen#helptags()
 
 set nocompatible                " choose no compatibility with legacy vi
 syntax enable                   " syntax highlighting, enable keeps hi, on overrules
@@ -244,8 +252,13 @@ function! MarkdownFoldText()
   for i in range(v:foldstart, v:foldend)
     let charcount += strlen(getline(i))
   endfor
-  let lines = charcount / 75.0
-  let pagecount = lines / 35.0
+  " Linux Libertine 12pt --> ~93chars, ~34lines
+  " volle Zeilen (ohne Absätze, Restzeilen) ohne Überschrift
+  " bei ca 4 Absätze / Seite --> -2lines
+  " bei ca 2 Überschriften (je 2 Zeilen) / Seite --> -3lines
+  " TODO h1 zu ganzen Seiten aufrunden
+  let lines = charcount / 93.0
+  let pagecount = lines / 29.0
   let pagecount = pagecount * 4
   let pagecount = floor(pagecount)
   let pagecount = pagecount / 4.0
@@ -347,3 +360,27 @@ if exists("+showtabline")
 "   map!    <S-F10>  <C-O>:tabprev<CR>
 endif 
 
+"autocmd VimEnter,VimLeave * silent !tmux set status
+
+" LaTeX-Suite
+" http://vim-latex.sourceforge.net/documentation/latex-suite/
+
+" Starting with Vim 7, the filetype of empty .tex files defaults to
+" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
+" The following changes the default filetype back to 'tex':
+let g:tex_flavor='latex'
+
+" TIP: if you write your \label's as \label{fig:something}, then if you
+" type in \ref{fig: and press <C-n> you will automatically cycle through
+" all the figure labels. Very useful!
+set iskeyword+=:
+
+" pause LaTeX-Suite Macros
+" also on b: level, or as setting
+let g:Imap_FreezeImap = 0
+
+" Smart Key Mappings
+" Outline Window bei Completion
+" Completion von ref, cite
+" quickfix window bei errors
+" Compilation
