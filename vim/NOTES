@@ -8,6 +8,9 @@
 " text objects: ib, ab, ...
 " change: ., repeat, undo
 
+" open vim at specific line, eg. 23:
+vim file +23
+
 hi Marks
 [] bessere Erreichbarkeit
 
