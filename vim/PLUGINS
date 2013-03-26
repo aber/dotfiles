@@ -10,12 +10,15 @@ snipmate-snippets
 syntastic
 + tabular
 tagbar
+" taglist
 tlib
 + unimpaired
 zencoding
 mw-utils
 + ack
 buffergator
+" bufexplorer
+" minibufexplorer
 css-color
 + ctrlp
 endwise
