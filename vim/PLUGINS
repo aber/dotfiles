@@ -94,3 +94,6 @@ vim-textobj-rubyblock
 " vim-orgmode
 " clam
 " splice
+ctags.vim
+vim-visual-star-search
+dispatch.vim

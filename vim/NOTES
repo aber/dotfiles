@@ -375,3 +375,5 @@ argdo, bufdo, windo
 regexp flags /ge global, no errors displayed
 vim -o * "open in split wins
 --> Qargs helper command, execute only on quickfix list buffers
+
+:write ++enc=utf-8 russian.txt " write as UTF-8

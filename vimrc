@@ -71,6 +71,8 @@ set smartcase                   " ... unless they contain at least one capital l
 " %%% leader %%%
 let mapleader = ","
 let g:mapleader = ","
+let maplocalleader = "_"
+let g:maplocalleader = "_"
 
 " %%% display %%%
 
@@ -79,7 +81,7 @@ set number
 set list
 set listchars=tab:▸\ ,eol:¬,trail:·    " help listchars
 set cursorline
-     
+
 " set fcs?
 set fillchars+=fold:\ 
 set fillchars+=vert:\ 
@@ -90,6 +92,8 @@ let g:syntastic_javascript_checker = "jshint"
 " %%% key mappings %%%
 
 nnoremap <leader><leader> <c-^>
+" toggle hlsearch
+"nnoremap <silent> <Esc><Esc> :set hlsearch!<CR>
 
 " open the file under the cursor in new tab
 map <leader>gf :tabe <cfile><cr>
@@ -300,7 +304,7 @@ if has("autocmd")
   au BufNewFile,BufRead *.roh.md syn region  zettelNotiz   start="\[" end="\]" oneline conceal
   au BufNewFile,BufRead *.roh.md hi zettelNotiz ctermbg=Yellow ctermfg=Black
   au BufNewFile,BufRead *.roh.md setlocal tw=0 wrap nolist linebreak wrapmargin=0
-  au BufNewFile,BufRead *.roh.md nnoremap <buffer> <leader>p :!pandoc -f markdown -t latex -o %:p:h/draft.pdf --toc --template=%:p:h/template.tex -V documentclass=scrartcl -V font-size=12pt %  && zathura %:p:h/draft.pdf<cr>
+  au BufNewFile,BufRead *.roh.md nnoremap <buffer> <leader>p :!pandoc -f markdown -t latex -o %:p:h/draft.pdf --latex-engine=xelatex --template=%:p:h/template.tex --toc -V documentclass=scrartcl -V lang=ngerman -V fontsize=12pt -H %:p:h/include-header.tex % && zathura %:p:h/draft.pdf<cr>
 endif
 
 " -----------> Tabline <-------------
@@ -384,3 +388,8 @@ let g:Imap_FreezeImap = 0
 " Completion von ref, cite
 " quickfix window bei errors
 " Compilation
+
+" set an undo point before deleting with C-w or C-u
+" then undo will work, no input is lost
+inoremap <c-u> <c-g>u<c-u>
+inoremap <c-w> <c-g>u<c-w>
