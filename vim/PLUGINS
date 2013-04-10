@@ -92,3 +92,5 @@ auctex
 vim-indent-object
 vim-textobj-rubyblock
 " vim-orgmode
+" clam
+" splice
