@@ -9,11 +9,15 @@
   co = checkout
   ma = checkout master
   di = diff --color
+  dist = diff --color --cached
   d = diff --color
   dw = diff --word-diff --color
   lc = log ORIG_HEAD.. --stat --no-merges
   pu = pull --ff-only
   purb = pull --rebase
+  fe = fetch
+  rb = rebase
+  rbi = rebase --interactive
   changes = diff --name-status -r diffstat=diff --stat -r
   patches = log --color --patch
   oneline = log --pretty=oneline --color
@@ -21,8 +25,8 @@
   add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
   graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format::  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
 [core]
-	excludefiles = ~/.gitignore
+  excludesfile = ~/.gitignore
 [color]
-	diff = auto
-	status = auto
-	branch = auto
+  diff = auto
+  status = auto
+  branch = auto
