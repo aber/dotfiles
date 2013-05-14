@@ -226,6 +226,27 @@ if has ("autocmd")
 endif
 
 " fold until the next empty line
+function! FirstSecondFolds()
+  if v:lnum == 1
+    return "0"
+  endif
+  let thisline = getline(v:lnum)
+  let prevline = getline(v:lnum-1)
+  let nextline = getline(v:lnum+1)
+  if (match(thisline, '^/\* ====') >= 0 && match(thisline, '.') >= 0)
+    return ">1"
+  elseif (match(thisline, '^$') >= 0 && match(nextline, '^/\* ====') >= 0)
+    return "0"
+  elseif (match(thisline, '^/\* ====') >= 0)
+    return "0"
+  elseif (match(thisline, '^/\* ----') >= 0)
+    return ">2"
+  else
+    return "="
+  endif
+endfunction
+
+" fold until the next empty line
 function! NotizenFolds()
   if v:lnum == 1
     return ">1"
@@ -245,6 +266,18 @@ endfunction
 "function! MarkdownFoldText()
 "  return getline(v:foldstart).getline(v:foldstart+1)
 "endfunction
+
+function! FirstSecondFoldText()
+  let thisline = getline(v:foldstart)
+  let nextline = getline(v:foldstart+1)
+  let nextlinestripped = substitute(nextline, '^\s*\(.\{-}\)\s*$', '\1', '')
+  if (match(thisline, '^/\* ====') >= 0)
+    let fill = 80 - 22 - strlen(nextlinestripped)
+    return '/* ==========| '.nextlinestripped.' |'.repeat('=',fill).'== */'
+  elseif (match(thisline, '^/\* ----') >= 0)
+    return thisline
+  endif
+endfunction
 
 function! SimpleFoldText()
   return getline(v:foldstart)
