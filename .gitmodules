@@ -58,3 +58,6 @@
 [submodule "vim/bundle/zencoding"]
 	path = vim/bundle/zencoding
 	url = http://github.com/mattn/zencoding-vim
+[submodule "vim/bundle/lang-css3"]
+	path = vim/bundle/lang-css3
+	url = https://github.com/hail2u/vim-css3-syntax.git
