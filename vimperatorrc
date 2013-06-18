@@ -1,4 +1,5 @@
-set gui=none
+" set gui=none
+set gui=tabs
 set scrollbars=true
 set autocomplete=false
 
