@@ -21,6 +21,11 @@ buffergator
 " minibufexplorer
 css-color
 + ctrlp
+  plugins: ctrlp-filetype, ctrlp-marks, ctrlp-register, ctrlp-launcher
+  ctrlp-git, ctrlp-git-log, ctrlp-modified
+  ctrlp-z (fasd), ctrlp-unicode (unicode-data)
+  ctrlp-memolist (memolist)
+  ctrlp-extensions.vim
 endwise
 matchit
 " nerdcommenter
@@ -97,3 +102,8 @@ vim-textobj-rubyblock
 ctags.vim
 vim-visual-star-search
 dispatch.vim
+
+jekyll.vim
+memolist.vim
+neocomplcache
+vimshell

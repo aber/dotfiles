@@ -330,7 +330,7 @@ if has("autocmd")
   au BufNewFile,BufRead *.md set foldtext=MarkdownFoldText()
 
   au BufNewFile,BufRead *.notizen.md setlocal foldmethod=expr
-  au BufNewFile,BufRead *.notizen.md setlocal foldexpr=NotizenFolds()
+  "au BufNewFile,BufRead *.notizen.md setlocal foldexpr=NotizenFolds()
   au BufNewFile,BufRead *.notizen.md setlocal foldtext=MarkdownFoldText()
   au BufNewFile,BufRead *.notizen.md setlocal nocursorline
 
