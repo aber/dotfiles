@@ -18,7 +18,6 @@ mw-utils
 + ack
 buffergator
 " bufexplorer
-" minibufexplorer
 css-color
 + ctrlp
   plugins: ctrlp-filetype, ctrlp-marks, ctrlp-register, ctrlp-launcher
@@ -48,8 +47,8 @@ vroom
 + less
 + ruby
 + solarized
-" lusty-explorer
-" lusty-juggler
++ lusty-explorer
++ lusty-juggler
 drupal-snippets https://github.com/technosophos/drupal-snippets.git
 " drupal-vim
 + supertab
@@ -102,6 +101,8 @@ vim-textobj-rubyblock
 ctags.vim
 vim-visual-star-search
 dispatch.vim
+vim-pandoc
+voom-vim
 
 jekyll.vim
 memolist.vim

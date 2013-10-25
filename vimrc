@@ -42,6 +42,9 @@ let g:pathogen_disabled = ['atp', 'vim-latex', 'latex-box']
 " but not in GVim, so disable it if no GUI is running
 if !has('gui_running')
   call add(g:pathogen_disabled, 'csscolor')
+
+  " default guioptions=gimrLtcT
+  set guioptions=
 endif
 runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
@@ -68,6 +71,14 @@ set incsearch                   " incremental searching
 set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
 
+" http://usevim.com/2012/10/19/vim101-set-hidden/
+" "It hides buffers instead of closing them. This means that you can have
+" unwritten changes to a file and open a new file using :e, without being
+" forced to write or undo your changes first. Also, undo buffers and marks are
+" preserved while the buffer is open."
+" (http://nvie.com/posts/how-i-boosted-my-vim/)
+set hidden
+
 " %%% leader %%%
 let mapleader = ","
 let g:mapleader = ","
@@ -79,7 +90,7 @@ let g:maplocalleader = "_"
 " Use the same symbols as TextMate for tabstops and EOLs
 set number
 set list
-set listchars=tab:▸\ ,eol:¬,trail:·    " help listchars
+set listchars=tab:▸\ ,eol:¬,trail:·,precedes:<,extends:>    " help listchars
 set cursorline
 
 " set fcs?
@@ -110,7 +121,7 @@ vmap <C-Down> ]egv
 nmap gV `[v`]
 
 " Shortcut to rapidly toggle `set list`
-nmap <leader>l :set list!<CR>
+"nmap <leader>l :set list!<CR>
 nmap <leader>n :set number!<CR>
 nmap <leader>w :set wrap!<CR>
 nmap <leader>p :set paste!<CR>
@@ -160,7 +171,7 @@ hi Comment              ctermbg=NONE    ctermfg=240
 " Number
 hi LineNr               ctermbg=NONE    ctermfg=238
 " Folds
-hi Folded               ctermbg=233     ctermfg=242  cterm=NONE
+hi Folded               ctermbg=233     ctermfg=211  cterm=NONE
 hi FoldColumn           ctermbg=NONE    ctermfg=238  cterm=bold
 " TabLine
 hi TabLine              ctermbg=234    ctermfg=245    cterm=NONE
@@ -411,6 +422,7 @@ let g:tex_flavor='latex'
 " type in \ref{fig: and press <C-n> you will automatically cycle through
 " all the figure labels. Very useful!
 set iskeyword+=:
+set iskeyword+=-
 
 " pause LaTeX-Suite Macros
 " also on b: level, or as setting
