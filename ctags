@@ -1,0 +1,6 @@
+--langdef=bib
+--langmap=bib:.bib
+--regex-bib=/@string\{([^ "#%')(,=}{]+)/\1/s,BibTeX-Strings/i
+--regex-bib=/@(article|book|bookinbook|booklet|inbook|incollection|inproceedings|manual|masterthesis|misc|mvbook|phdthesis|proceedings|thesis|techreport|unpublished)[[:space:]]*\{([^,]+),/\2/e,BibTeX-Entries/i
+--regex-bib=/[[:space:]]*author[[:space:]]*=[[:space:]]*("([^"]+)"|\{([^\}]+)\})[[:space:]]*,?[[:space:]]*$/\2\3/a,BibTeX-Authors/i
+--regex-bib=/[[:space:]]*title[[:space:]]*=[[:space:]]*["\{](\{[:word:]+\}.+|.+)(["}][[:space:]]*,[[:space:]]*$|$)/\1/t,BibTeX-Titles/i
