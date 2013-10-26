@@ -21,6 +21,8 @@ fi
 # aliases
 alias c=clear
 alias clearhist="echo '' > $HISTFILE"
+alias v="vim --servername VIM --remote-silent"
+alias vv="vim --servername VIM"
 
 if [[ -x /usr/bin/ack-grep ]]; then
   alias ogrep=/bin/grep
