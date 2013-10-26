@@ -1,6 +1,11 @@
 [user]
-  name = XXX
-  email = x@example.com
+  name = "No Name"
+  email = "no.name@example.com"
+
+[core]
+  excludesfile = ~/.gitignore
+  editor = vim
+  pager = less
 
 # http://osiux.com/git-alias
 [alias]
@@ -26,18 +31,16 @@
   add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
   graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format::  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
 
-[core]
-  excludesfile = ~/.gitignore
-
 [color]
   diff = auto
   status = auto
   branch = auto
-  editor = vim
-  pager = less
-
-[color]
   ui = true
 
 [diff "odf"]
   textconv=odt2txt
+
+# override your local user.name and user.email here
+[include]
+  path = .gitconfig.local
+
