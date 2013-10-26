@@ -1,6 +1,7 @@
 [user]
-	name = XXX
-	email = x@example.com
+  name = XXX
+  email = x@example.com
+
 # http://osiux.com/git-alias
 [alias]
   st = status
@@ -24,9 +25,19 @@
   edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
   add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
   graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format::  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
+
 [core]
   excludesfile = ~/.gitignore
+
 [color]
   diff = auto
   status = auto
   branch = auto
+  editor = vim
+  pager = less
+
+[color]
+  ui = true
+
+[diff "odf"]
+  textconv=odt2txt
