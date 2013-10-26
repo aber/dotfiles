@@ -1,0 +1,6 @@
+# override your local user.name and user.email here
+[user]
+  name = "No Name"
+  email = "no.name@example.com"
+
+# vim: set ft=gitconfig :
