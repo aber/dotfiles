@@ -40,6 +40,11 @@
 [diff "odf"]
   textconv=odt2txt
 
+[push]
+  # since 1.7.11
+  # 'simple' will be default in git 2.0 instead of 'matching'
+  default = simple
+
 # override your local user.name and user.email here
 [include]
   path = .gitconfig.local
