@@ -298,7 +298,7 @@ function! MarkdownFoldText()
   let foldsize = (v:foldend-v:foldstart)
   let charcount = 0
   for i in range(v:foldstart, v:foldend)
-    let charcount += strlen(getline(i))
+    let charcount += strlen(substitute(getline(i), ".", "x", "g"))
   endfor
   " Linux Libertine 12pt --> ~93chars, ~34lines
   " volle Zeilen (ohne Absätze, Restzeilen) ohne Überschrift
@@ -313,7 +313,8 @@ function! MarkdownFoldText()
   let pagecount += 0.25
   "return '--- '.getline(v:foldstart).' ('.foldsize.' lines)'
   let spaces = 60 - strwidth(getline(v:foldstart))
-  return strpart(getline(v:foldstart), 0, 60).repeat(' ',spaces).' ('.printf("%5.2f", pagecount).' Seiten)'
+  let linepart = substitute(getline(v:foldstart), "\\(.\\{1,60}\\).*", "\\1", "")
+  return linepart.repeat(' ',spaces).' ('.printf("%5.2f", pagecount).' Seiten)'
 endfunction
 
 set foldtext=SimpleFoldText()
