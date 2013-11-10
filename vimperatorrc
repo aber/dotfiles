@@ -6,6 +6,8 @@ nmap gv :buffer #<cr>
 
 set defsearch=google
 
+set status=ssl,input,location,bookmark,history,tabcount,position
+
 " hi ContentSeparator border:1px solid black
 " hi Normal
 " hi StatusLine
