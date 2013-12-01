@@ -12,6 +12,8 @@ EDITOR=vi
 
 if [[ -s "/usr/local/share/chruby/chruby.sh" ]]; then
   source "/usr/local/share/chruby/chruby.sh" # Load chruby into a shell session *as a function*
+  # load an default ruby
+  chruby ruby-1.9.3-p448
 elif [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
   source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 fi
