@@ -35,9 +35,12 @@
 "
 " colors orange: 166
 " --------------------------------------------
-
+" set ttyfast
+" set lazyredraw
+"
+" vim --servername NAME --remote-silent
 " To disable a plugin, add it's bundle name to the following list
-let g:pathogen_disabled = ['atp', 'vim-latex', 'latex-box']
+let g:pathogen_disabled = ['atp', 'vim-latex', 'latex-box', 'minibufexpl', 'tex-9', 'syntastic', 'ycm', 'easytags', 'lang-pandoc', 'autocomplpopup', 'neocomplete']
 " for some reason the csscolor plugin is very slow when run on the terminal
 " but not in GVim, so disable it if no GUI is running
 if !has('gui_running')
@@ -311,6 +314,7 @@ function! MarkdownFoldText()
   let pagecount = floor(pagecount)
   let pagecount = pagecount / 4.0
   let pagecount += 0.25
+  let b:zettel_page_count += pagecount
   "return '--- '.getline(v:foldstart).' ('.foldsize.' lines)'
   let spaces = 60 - strwidth(getline(v:foldstart))
   let linepart = substitute(getline(v:foldstart), "\\(.\\{1,60}\\).*", "\\1", "")
@@ -343,10 +347,11 @@ if has("autocmd")
 
   au BufNewFile,BufRead *.notizen.md setlocal foldmethod=expr
   "au BufNewFile,BufRead *.notizen.md setlocal foldexpr=NotizenFolds()
+  let b:zettel_page_count = 0
   au BufNewFile,BufRead *.notizen.md setlocal foldtext=MarkdownFoldText()
   au BufNewFile,BufRead *.notizen.md setlocal nocursorline
 
-  au BufNewFile,BufRead *.roh.md syn region  zettelNotiz   start="\[" end="\]" oneline conceal
+  au BufNewFile,BufRead *.roh.md syn region  zettelNotiz   start="\[\[" end="\]\]" oneline conceal
   au BufNewFile,BufRead *.roh.md hi zettelNotiz ctermbg=Yellow ctermfg=Black
   au BufNewFile,BufRead *.roh.md setlocal tw=0 wrap nolist linebreak wrapmargin=0
   au BufNewFile,BufRead *.roh.md nnoremap <buffer> <leader>p :!pandoc -f markdown -t latex -o %:p:h/draft.pdf --latex-engine=xelatex --template=%:p:h/template.tex --toc -V documentclass=scrartcl -V lang=ngerman -V fontsize=12pt -H %:p:h/include-header.tex % && zathura %:p:h/draft.pdf<cr>
