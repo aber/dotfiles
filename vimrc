@@ -210,7 +210,7 @@ hi PmenuSel             ctermbg=7      ctermfg=1
 hi CtrlPMatch           ctermbg=11     ctermfg=0      cterm=reverse
 " Signs
 " for e.g. syntastic
-hi SignColumn           ctermbg=237
+hi SignColumn           ctermbg=NONE
 hi SpellBad             ctermbg=1
 " Parenthesis match
 hi MatchParen           ctermbg=99     ctermfg=0 
@@ -444,3 +444,34 @@ let g:Imap_FreezeImap = 0
 " then undo will work, no input is lost
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
+
+" http://vim.wikia.com/wiki/Using_marks
+" https://github.com/jacquesbh/vim-showmarks.git
+" http://ex-dev.com/exvim/docs/show_marks/
+"
+" By default the following keymappings are defined:
+"    \mt : Toggles ShowMarks on and off.
+"    \mh : Hides an individual mark.
+"    \ma : Hides all marks in the current buffer.
+"    \mm : Places the next available mark.
+let g:showmarks_enable = 1
+let showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+" Ignore help, quickfix, non-modifiable buffers
+let showmarks_ignore_type = "hqm"
+" Hilight lower & upper marks
+let showmarks_hlline_lower = 0
+let showmarks_hlline_upper = 0
+
+" For marks a-z
+hi clear ShowMarksHLl
+hi ShowMarksHLl term=bold cterm=none ctermbg=LightBlue ctermfg=233 gui=none guibg=LightBlue
+" For marks A-Z
+hi clear ShowMarksHLu
+hi ShowMarksHLu term=bold cterm=bold ctermbg=LightRed ctermfg=DarkRed gui=bold guibg=LightRed guifg=DarkRed
+" For all other marks
+hi clear ShowMarksHLo
+hi ShowMarksHLo term=bold cterm=bold ctermbg=LightYellow ctermfg=DarkYellow gui=bold guibg=LightYellow guifg=DarkYellow
+" For multiple marks on the same line.
+hi clear ShowMarksHLm
+hi ShowMarksHLm term=bold cterm=none ctermbg=LightBlue gui=none guibg=SlateBlue
+

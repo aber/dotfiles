@@ -67,3 +67,9 @@
 [submodule "vim/bundle/openssl"]
 	path = vim/bundle/openssl
 	url = https://github.com/vim-scripts/openssl.vim.git
+[submodule "vim/bundle/gitgutter"]
+	path = vim/bundle/gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
+[submodule "vim/bundle/showmarks"]
+	path = vim/bundle/showmarks
+	url = https://github.com/jacquesbh/vim-showmarks.git
