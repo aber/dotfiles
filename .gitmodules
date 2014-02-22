@@ -55,9 +55,6 @@
 [submodule "oh-my-zsh-custom/z"]
 	path = oh-my-zsh-custom/z
 	url = https://github.com/rupa/z.git
-[submodule "vim/bundle/zencoding"]
-	path = vim/bundle/zencoding
-	url = http://github.com/mattn/zencoding-vim
 [submodule "vim/bundle/lang-css3"]
 	path = vim/bundle/lang-css3
 	url = https://github.com/hail2u/vim-css3-syntax.git
@@ -73,3 +70,6 @@
 [submodule "vim/bundle/showmarks"]
 	path = vim/bundle/showmarks
 	url = https://github.com/jacquesbh/vim-showmarks.git
+[submodule "vim/bundle/emmet"]
+	path = vim/bundle/emmet
+	url = https://github.com/mattn/emmet-vim.git
