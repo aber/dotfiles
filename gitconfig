@@ -1,3 +1,5 @@
+# http://travisjeffery.com/b/2012/02/search-a-git-repo-like-a-ninja/
+
 [user]
   name = "No Name"
   email = "no.name@example.com"
@@ -14,19 +16,21 @@
   ci = commit
   co = checkout
   ma = checkout master
-  di = diff --color
-  dist = diff --color --cached
   d = diff --color
+  di = diff --color
   dw = diff --word-diff --color
+  dist = diff --color --cached
   lc = log ORIG_HEAD.. --stat --no-merges
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue) <%an>%Creset' --abbrev-commit
+  ll = log --oneline
+  lll = log --oneline --name-status
   pu = pull --ff-only
   purb = pull --rebase
   fe = fetch
   rb = rebase
   rbi = rebase --interactive
-  changes = diff --name-status -r diffstat=diff --stat -r
+  # changes = diff --name-status -r diffstat=diff --stat -r
   patches = log --color --patch
-  oneline = log --pretty=oneline --color
   edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
   add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
   graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format::  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
@@ -43,9 +47,13 @@
 [push]
   # since 1.7.11
   # 'simple' will be default in git 2.0 instead of 'matching'
+  # http://stackoverflow.com/questions/13148066/warning-push-default-is-unset-its-implicit-value-is-changing-in-git-2-0
+  # simple: push only one (the current) branch
+  # matching: try to push all local branches to matching remote branches
   default = simple
 
 # override your local user.name and user.email here
 [include]
-  path = .gitconfig.local
+  path = ~/.gitconfig.local
 
+# vim: set ft=gitconfig :

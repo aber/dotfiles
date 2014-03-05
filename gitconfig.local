@@ -1,4 +1,6 @@
-# override your local user.name and user.email here
+# override the default settings here, e.g. your local user.name
+# and user.email
+
 [user]
   name = "No Name"
   email = "no.name@example.com"
