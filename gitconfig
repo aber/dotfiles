@@ -13,7 +13,11 @@
 [alias]
   st = status
   br = branch
+  aa = add -u .
+  aaa = add -u
   ci = commit
+  cm = commit --message
+  ca = commit --amend
   co = checkout
   ma = checkout master
   d = diff --color
