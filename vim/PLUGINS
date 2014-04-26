@@ -108,3 +108,13 @@ jekyll.vim
 memolist.vim
 neocomplcache
 vimshell
+
+" autocomplpop
+" easytags
+" listtoggle
+" neocomplete
+" speeddating
+" ultisnips
+" vim-misc
+" ycm
+

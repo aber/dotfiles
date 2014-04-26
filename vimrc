@@ -353,6 +353,7 @@ if has("autocmd")
 
   au BufNewFile,BufRead *.roh.md syn region  zettelNotiz   start="\[\[" end="\]\]" oneline conceal
   au BufNewFile,BufRead *.roh.md hi zettelNotiz ctermbg=Yellow ctermfg=Black
+  " bg: 228; fg: 178, 208
   au BufNewFile,BufRead *.roh.md setlocal tw=0 wrap nolist linebreak wrapmargin=0
   au BufNewFile,BufRead *.roh.md nnoremap <buffer> <leader>p :!pandoc -f markdown -t latex -o %:p:h/draft.pdf --latex-engine=xelatex --template=%:p:h/template.tex --toc -V documentclass=scrartcl -V lang=ngerman -V fontsize=12pt -H %:p:h/include-header.tex % && zathura %:p:h/draft.pdf<cr>
 endif
@@ -403,7 +404,7 @@ if exists("+showtabline")
              let i = i + 1
          endwhile
          let s .= '%T%#TabLineFill#%='
-         " let s .= (tabpagenr('$') > 1 ? '%999XX' : 'X')
+         " let s .= (tabpagenr('$') > 0 ? '%999XX' : 'X')
          return s
      endfunction
      set stal=1 "2
@@ -481,4 +482,38 @@ hi ShowMarksHLm term=bold cterm=none ctermbg=LightBlue gui=none guibg=SlateBlue
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
+
+" from uni account
+" UltiSnippets
+let g:UltiSnipsExpandTrigger = "<c-j>"
+let g:UltiSnipsListSnippets = "<c-tab>"
+let g:UltiSnipsJumpForwardTrigger = "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
+
+let g:ycm_collect_identifiers_from_tags_files = 1
+"let g:ycm_filetype_blacklist = {}
+"set completeopt+=preview
+
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+
+let g:org_todo_keywords=[['TODO', '|', 'DONE'], ['ZULESEN', 'ZUBESORGEN', 'GELESEN', '|', 'WEG', 'EXZERPIERT', 'EINGEARBEITET'], ['THESE', 'ARGUMENT', 'STUETZE', 'MODAL', 'FRAGE', 'ANALYSE']]
+hi org_todo_keyword_TODO ctermfg=blue
+hi org_todo_keyword_DONE ctermfg=green cterm=bold
+hi org_todo_keyword_ZULESEN ctermfg=blue
+hi org_todo_keyword_ZUBESORGEN ctermfg=yellow
+hi org_todo_keyword_GELESEN ctermfg=cyan
+hi org_todo_keyword_WEG ctermfg=cyan
+hi org_todo_keyword_EXZERPIERT ctermfg=green
+hi org_todo_keyword_EINGEARBEITET ctermfg=green cterm=bold
+hi org_todo_keyword_THESE ctermfg=cyan cterm=bold
+hi org_todo_keyword_ARGUMENT ctermfg=green
+hi org_todo_keyword_STUETZE ctermfg=blue
+hi org_todo_keyword_MODAL ctermfg=yellow
+hi org_todo_keyword_FRAGE ctermfg=yellow
+hi org_todo_keyword_ANALYSE ctermfg=blue
+hi org_heading1 cterm=bold
+
 
