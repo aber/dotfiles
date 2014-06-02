@@ -85,3 +85,6 @@
 [submodule "vim/bundle/vroom"]
 	path = vim/bundle/vroom
 	url = https://github.com/skalnik/vim-vroom.git
+[submodule "fasd"]
+	path = fasd
+	url = https://github.com/clvv/fasd.git
