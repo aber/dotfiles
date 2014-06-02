@@ -76,3 +76,12 @@
 [submodule "vim/bundle/ultisnips"]
 	path = vim/bundle/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
+[submodule "vim/bundle/lang-minitest"]
+	path = vim/bundle/lang-minitest
+	url = https://github.com/sunaku/vim-ruby-minitest.git
+[submodule "vim/bundle/dispatch"]
+	path = vim/bundle/dispatch
+	url = https://github.com/tpope/vim-dispatch.git
+[submodule "vim/bundle/vroom"]
+	path = vim/bundle/vroom
+	url = https://github.com/skalnik/vim-vroom.git
